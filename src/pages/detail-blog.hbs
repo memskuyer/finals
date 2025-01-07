@@ -1,0 +1,28 @@
+{{#>layout}}
+    <div class="detail-container">
+        <div class="detail-content">
+            <div class="detail-data-blog">
+                <div class="detail-image-blog">
+                    <img src="{{data.image}}" alt="detail-images">
+                </div>
+                <div class="text-detail-blog">
+                    <div>
+                        <h1>{{data.title}}</h1>
+                    </div>
+                    <div class="semibold-text">
+                         {{formatDate data.createdAt}} | {{data.username}}
+                    </div>
+                    <div class="detail-text-content">
+                        {{data.content}}
+                    </div>
+                    <div>
+                        Di Post Pada {{formatDate data.createdAt}}
+                    </div>
+                    <div>
+                        Di Update Pada  {{formatDate data.updatedAt}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/layout}}

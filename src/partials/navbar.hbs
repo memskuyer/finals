@@ -1,0 +1,82 @@
+<nav class="navbar-x">
+  <div class="nav-lefts">
+    <a href="/">
+      <img class="nav-logos" src="/assets/images/logo-cat.png" alt="logo-navbars" />
+    </a>
+    <ul class="nav-uli">
+      <li>
+        <a
+          href="/"
+          class=" {{#if (equal currenPage 'Home')}} active link-actives {{else}}links {{/if}}"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="/blog"
+          class="{{#if (equal currenPage 'Blog')}} active link-actives {{else}}links{{/if}}"
+          >Blog</a
+        >
+      </li>
+      <li>
+        <a
+          href="/my-project"
+          class="{{#if (equal currenPage 'Myproject')}} active link-actives {{else}}links{{/if}}"
+          >My Project</a
+        >
+      </li>
+      <li>
+        <a
+          href="/testimonial"
+          class="{{#if (equal currenPage 'Testimonials')}} active link-actives {{else}}links{{/if}}"
+          >Testimonials</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="nav-option">
+    <ul id="menu-list" class="menuHide">
+      <li>
+        <a href="/" class="{{#if (equal currenPage 'Home')}} active link-actives {{else}}links {{/if}}">Home</a>
+      </li>
+      <li>
+        <a href="/blog" class="{{#if (equal currenPage 'Blog')}} active link-actives {{else}}links {{/if}}">Blog</a>
+      </li>
+      <li>
+        <a href="/my-project" class="{{#if (equal currenPage 'Myproject')}} active link-actives {{else}}links{{/if}}">My Project</a>
+      </li>
+      <li>
+        <a href="/contact" class="{{#if (equal currenPage 'Contact')}} active link-actives {{else}}links{{/if}}">Contact</a>
+      </li>
+      <li>
+        {{#if user}}
+        <a href="/logout" class="links">Logout</a>
+        {{else}}
+        <a href="/login" class="links">Login</a>
+        {{/if}}
+      </li>
+    </ul>
+  </div>
+  {{#if user}}
+  <div>{{user.username}}</div>
+  {{/if}}
+  <div class="nav-right">
+    {{#if user}}
+    <div style="margin-right: 10px">
+      <a href="/logout">Logout</a>
+    </div>
+    {{else}}
+    <div style="margin-right: 10px">
+      <a href="/login">Login</a>
+    </div>
+    {{/if}}
+    <div style="margin-left: 10px">
+      <a href="/contact" class="{{#if (equal currenPage 'Contact')}} active link-actives {{else}}links{{/if}}">Contact Me</a>
+    </div>
+  </div>
+  <div class="btn-nav">
+    <button type="button" id="nav-btn" class="btn-hamburger">
+      <i class="fa-solid fa-burger"></i>
+    </button>
+  </div>
+</nav>

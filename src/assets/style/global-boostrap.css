@@ -1,0 +1,179 @@
+.btn-cyans {
+  width: 200px;
+  padding: 10px;
+  border-radius: 15px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  background-color: aqua;
+}
+
+.bg-cat {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/cat-bg1.jpg");
+  padding-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-cat1 {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-image: url("../images/cat-bg3.jpg");
+  padding-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-cat2 {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-image: url("../images/cat-bg7.png");
+  padding-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-cat3 {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-image: url("../images/cat.png");
+  /* padding-top: 10px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-cat4 {
+  width: 100%;
+  height: 100%;
+  height: auto;
+  background-image: url("../images/cat2.png");
+  /* padding-top: 10px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-cat5 {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  background-image: url("../images/cat3.png");
+  padding-top: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.shadow-bg {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 8px 60px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.shadow-bg-form {
+  /* From https://css.glass */
+  /* From https://css.glass */
+  width: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(7.5px);
+  -webkit-backdrop-filter: blur(7.5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.shadow-input {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.shadow-input {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-controls {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: var(--bs-border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.text-a {
+  text-decoration: none;
+  color: black;
+}
+.text-a:hover {
+  color: rgb(30, 0, 255);
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: #8b5cf6 #06b6d4 #f43f5e #ec4899; /* Violet, Cyan, Rose, Pink */
+  }
+  25% {
+    border-color: #06b6d4 #f43f5e #ec4899 #8b5cf6; /* Cyan, Rose, Pink, Violet */
+  }
+  50% {
+    border-color: #f43f5e #ec4899 #8b5cf6 #06b6d4; /* Rose, Pink, Violet, Cyan */
+  }
+  75% {
+    border-color: #ec4899 #8b5cf6 #06b6d4 #f43f5e; /* Pink, Violet, Cyan, Rose */
+  }
+  100% {
+    border-color: #8b5cf6 #06b6d4 #f43f5e #ec4899; /* Kembali ke awal */
+  }
+}
+
+.animate-border {
+  animation: borderAnimation 3s linear infinite;
+  border-style: solid;
+  border-width: 6px;
+  border-radius: 0.5rem;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(5px);
+  /* border: 1px solid rgba(255, 255, 255, 0.8); */
+}
+
+/* .text-shadows {
+  text-shadow: -1px 14px 50px rgba(1, 1, 1, 0.99);
+} */

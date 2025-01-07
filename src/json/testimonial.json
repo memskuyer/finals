@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "name": "Spongebob",
+    "rating": 3,
+    "images": "facebook.jpg",
+    "comment": " Unde, doloribus ipsum? Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "2",
+    "name": "Patrick Star",
+    "rating": 1,
+    "images": "facebook.jpg",
+    "comment": "  Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "3",
+    "name": "Tuan Krabs",
+    "rating": 2,
+    "images": "netflix.png",
+    "comment": "consectetur adipisicing elit. Unde, doloribus ipsum? Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "4",
+    "name": "Squidward Tentacles",
+    "rating": 4,
+    "images": "image.png",
+    "comment": "  dolor sit, amet consectetur adipisicing elit. Unde,beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "5",
+    "name": "Gary",
+    "rating": 4,
+    "images": "facebook.jpg",
+    "comment": " Lorem ipsum dolor sit,  doloribus ipsum? Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "6",
+    "name": "Sandy Cheeks",
+    "rating": 5,
+    "images": "image.png",
+    "comment": " Lorem ipsum dolor sit, amet consectetur uae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "7",
+    "name": "Plankton",
+    "rating": 3,
+    "images": "netflix.png",
+    "comment": " adipisicing elit. Unde, doloribus ipsum? Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  },
+  {
+    "id": "8",
+    "name": "Karens",
+    "rating": 5,
+    "images": "facebook.jpg",
+    "comment": " Lorem ipsum dolor sit, amet consectetur ipsum? Quae eligendi beatae quod rerum praesentium. Iste culpa totam"
+  }
+]

@@ -1,0 +1,65 @@
+{{#>layout title = "add-Myproject" user=user}}
+    <div class="bg-cat">
+        <div class="container">
+            <div class="h-100 d-flex justify-content-center align-items-center">
+                <form action="/add-myproject" method="POST" enctype="multipart/form-data" class="shadow-bg p-3" style="min-width: 35%;">
+                    <h1 class="text-center">Form Add Project</h1>
+                    <div class="mb-3">
+                        <label for="title" class="form-label fw-bold" style="margin-left: 10px;">Title</label> 
+                        <input type="text" name="title" class="shadow-input" id="title" placeholder="Masukkan Title...">
+                    </div>
+                    {{!-- <div class="mb-3 d-flex gap-3">
+                        <div class="w-50">
+                            <label for="startDate">Start</label>
+                            <input id="startDate" class="shadow-input" type="date" name="startDate" />
+                        </div>
+                        <div class="w-50"> 
+                            <label for="endDate">End</label>
+                            <input id="endDate" class="shadow-input" type="date" name="endDate" />
+                        </div>
+                    </div> --}}
+                    <div class="mb-3">
+                        <label class="fw-bold" for="floatingTextarea">Content</label>
+                        <textarea class="shadow-input" name="content" id="floatingTextarea" placeholder="Masukkan Content Anda..." style="height: 100px"></textarea>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <label class="fw-bold" style="margin-left: 10px;" >Teknologi: </label>
+                        <div class="mx-2 form-check">
+                            <input type="checkbox" name="react" value="ReactJs" class="form-check-input" id="react">
+                            <label class="form-check-label" for="react">React Js</label>
+                        </div>
+                        <div class="mx-2 form-check">
+                            <input type="checkbox" name="node" value="NodeJs" class="form-check-input" id="node">
+                            <label class="form-check-label" for="node">Node Js</label>
+                        </div>
+                        <div class="mx-2 form-check">
+                            <input type="checkbox"  name="next" value="NextJs" class="form-check-input" id="Next Js">
+                            <label class="form-check-label" for="Next Js">Next Js</label>
+                        </div>
+                        <div class="mx-2 form-check">
+                            <input type="checkbox" name="php" value="PHP" class="form-check-input" id="php">
+                            <label class="form-check-label" for="php">PHP</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label fw-bold" style="margin-left: 10px;">Image:</label>
+                        <input class="form-controls" name="image" type="file" id="formFile">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/alert.js"></script>
+{{#if messages.success}}
+    <script>
+        alertSuccess('{{messages.success}}')
+    </script>
+{{/if}}
+{{#if messages.error}}
+    <script>
+        alertError('{{messages.error}}')
+    </script>
+{{/if}}
+
+{{/layout}}

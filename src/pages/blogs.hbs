@@ -1,0 +1,57 @@
+{{#>layout title = "Blog" user=user}}
+
+<div class="blogs-container">
+    <div class="blogs-btn">
+        {{#if user}}
+        <a href="/add-blog" class="add-btn">
+            <div>
+                Tambah Blogs
+            </div>
+        </a>
+        {{/if}}
+    </div>
+    <div class="blogs-content">
+        {{#each data}}
+        <div class="blogs-list-items">
+            <div class="blogs-image" style="width: 100%; height: 100%" >
+                <img src="{{this.image}}" alt="{{this.image}}" style="height: 150px;">
+            </div>
+            <div class="blogs-contents">
+                <a href="/detail-blog/{{this.id}}" style="text-decoration: none; color:black">{{this.title}}</a>
+                {{#if (equal this.user_id ../user.id)}}
+                <div class="blogs-btn-group">
+                    <a href="/edit-blog/{{this.id}}" class="blogs-btn-edit">Edit</a>
+                    <form action="/delete-blog/{{this.id}}?_method=DELETE" method="post">
+                        <button onclick="alertDelete()" type="submit" class="blogs-btn-delete">Delete</button>
+                    </form>
+                </div>
+                {{/if}}
+                <div>
+                    {{formatDate this.createdAt}} | {{this.username}}
+                </div>
+                <div class="blog-text text-clamp">
+                    {{this.content}}
+                </div>
+                <div class="blog-timers">
+                    {{times this.createdAt}}
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p>Data Blog Tidak Ada</p>
+        {{/each}}
+    </div>
+</div>
+ <script src="/js/alert.js"></script>
+        {{#if messages.error}}
+            <script>
+                alertError('{{messages.error}}')
+            </script>
+        {{/if}}
+        {{#if messages.success}}
+            <script>
+                alertSuccess('{{messages.success}}')
+            </script>
+    {{/if}}
+
+{{/layout}}

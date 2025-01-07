@@ -1,0 +1,81 @@
+{{#>layout title="Home" user=user}}
+
+<div class="containers">
+    <div class="contents">
+        <div class="data-content">
+            <div class="grids-2">
+                <div class="rows-1">
+                    <div>
+                        <h1>Hi, Welcome To My Portfolio</h1>
+                    </div>
+                    <div>
+                        <p>
+                        Fresh graduate of S1 Informatics Engineering from Amikom University Yogyakarta (GPA 3.47) with experience in creating and developing websites using various modern technologies, including React, Node.js, and Tailwind. Passionate to continue learning and contributing to the world of web development.
+                        </p>
+                    </div>
+                    <div class="list-icons">
+                        <a href="#">
+                            <div class="contacts">
+                                Contact
+                            </div>
+                        </a>
+                        <a href="/assets/pdf/cv.pdf" download>
+                            <div class="cv">
+                                Download CV <i class="fa-solid fa-download" style="color: black;"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="sosmeds">
+                        <div class="list-icons">
+                             <!-- linkedin  -->
+                            <a href="https://id.linkedin.com/in/paste-prosmana" target="_blank"
+                            ><i class="fa-brands fa-linkedin fa-3x" style="color: #0a0a0a"></i
+                            ></a>
+                            <!-- instagram  -->
+                            <a href="https://www.instagram.com/pasteprosmana/" target="_blank"
+                            ><i
+                                class="fa-brands fa-instagram fa-3x"
+                                style="color: #000000"></i
+                            ></a>
+                            <!-- Telegram  -->
+                            <a href="https://t.me/Pasteprosmana" target="_blank"
+                            ><i class="fa-brands fa-telegram fa-3x" style="color: #000000"></i
+                            ></a>
+                            <!-- github  -->
+                            <a href="https://github.com/memskuyer" target="_blank"
+                            ><i class="fa-brands fa-github fa-3x" style="color: #000000"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contents">
+                    <div class="cards">
+                        <img src="/assets/images/bg1.JPG" alt="Images">
+                        <div>
+                            <h1>
+                                Paste prosmana
+                            </h1>
+                        </div>
+                        <div>
+                            <p>
+                                Batch 59 | FullStack Developer
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/alert.js"></script>
+{{#if messages.error}}
+    <script>
+        alertError('{{messages.error}}')
+    </script>
+{{/if}}
+{{#if messages.success}}
+    <script>
+        alertSuccess('{{messages.success}}')
+    </script>
+{{/if}}
+{{/layout}}

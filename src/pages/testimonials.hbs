@@ -1,0 +1,60 @@
+{{#>layout title = 'Testimonials' user=user}}
+<div class="bg-cat2">
+    <div class="shadow-bg">
+    <div class="text-center fs-1 mt-5" style="font-weight: bold;">My Testimonial</div>
+        <div class="text-center fs-4 mt-5 text-shadows">List Rating By Star</div>
+        <div class="container text-center my-3">
+        <button onclick="showAllRating()"  type="button" class="btn btn-info animate-border">
+            All <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        <button onclick="findStar(1)" type="button" class="btn btn-info animate-border">
+            1 <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        <button onclick="findStar(2)" type="button" class="btn btn-info animate-border">
+            2 <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        <button onclick="findStar(3)" type="button" class="btn btn-info animate-border">
+            3 <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        <button onclick="findStar(4)" type="button" class="btn btn-info animate-border">
+            4 <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        <button onclick="findStar(5)" type="button" class="btn btn-info animate-border">
+            5 <i class="fa-solid fa-star" style="color: #2392e7"></i>
+        </button>
+        </div>
+    </div>
+
+    <div class="container-fluid mx-auto px-5">
+      <div class="row justify-content-center" id="grid-card">
+        <!-- card  -->
+        <div
+          class="col-4 m-2 shadow-bg"
+          style="width: 18rem; height: 20rem;">
+          <img
+            src="/assets/images/image.png"
+            class="card-img-top py-2 rounded-4"
+            style="max-height: 50%;"
+            alt="Images" />
+          <div class="card-body py-2">
+            <div class="overflow-auto" style="height: 75px">
+              <p class="" style="text-align: justify;">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde,
+                doloribus ipsum? Quae eligendi beatae quod rerum praesentium.
+                Iste culpa totam, explicabo voluptatem id corrupti nihil tenetur
+                deleniti, sint beatae esse accusamus voluptas laboriosam odit et
+                ratione numquam illum autem eveniet quas exercitationem odio
+                dolorum voluptate. Blanditiis, voluptatibus eos. Possimus,
+                explicabo!
+              </p>
+            </div>
+            <div class="text-end my-2 fw-bold">
+              <marquee>Woow Name Memberikan 5 <i class="fa-solid fa-star" style="color: #2392e7"></i></marquee>
+            </div>
+          </div>
+        </div>
+        <!-- card  -->
+    </div>
+</div>
+<script src="/js/testimonial.js"></script>
+{{/layout}}
