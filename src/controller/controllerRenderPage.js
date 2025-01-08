@@ -21,8 +21,6 @@ const renderBlog = async (req, res) => {
     type: QueryTypes.SELECT,
   });
 
-  console.log(blog);
-
   res.render("blogs", { data: blog, user });
 };
 const renderAddBlog = async (req, res) => {
@@ -35,7 +33,10 @@ const renderEditBlog = async (req, res) => {
 
   const query = `SELECT * FROM public."Blogs" WHERE id = ${id}`;
   const sql = await sequelize.query(query, { type: QueryTypes.SELECT });
-
+  if (!sql[0]) {
+    req.flash("error", "Mau Ngedit Apa bang?");
+    return res.redirect("/blog");
+  }
   res.render("edit-blog", { data: sql[0], user });
 };
 
@@ -50,6 +51,11 @@ const renderDetailBlog = async (req, res) => {
   AS "User" ON public."Blogs".user_id = "User".id WHERE  public."Blogs".id = ${id}
   ORDER BY public."Blogs"."createdAt" ASC`;
   const sql = await sequelize.query(query, { type: QueryTypes.SELECT });
+
+  if (!sql[0]) {
+    req.flash("error", "Mau Nyari Apa bang?");
+    return res.redirect("/blog");
+  }
 
   console.log(sql);
 
@@ -86,17 +92,54 @@ const renderEditProject = async (req, res) => {
     },
   });
 
-  const react = data.technology.includes("ReactJs");
-  const node = data.technology.includes("NodeJs");
-  const next = data.technology.includes("NextJs");
-  const php = data.technology.includes("PHP");
+  if (!data) {
+    req.flash("error", "Mau Ngedit Apa bang?");
+    return res.redirect("/my-project");
+  }
+  const react = data.technology.includes("ReactJs"); //true
+  const node = data.technology.includes("NodeJs"); //true
+  const next = data.technology.includes("NextJs"); //true
+  const php = data.technology.includes("PHP"); //false
 
   res.render("edit-myproject", { data, user, react, node, next, php });
 };
 
+const renderDetailProject = async (req, res) => {
+  const { user } = req.session;
+  const { id } = req.params;
+  const data = await myproject.findAll({
+    include: {
+      model: User,
+      as: "user",
+      attributes: { exclude: ["password"] },
+    },
+    where: {
+      id: id,
+    },
+  });
+
+  if (!data[0]) {
+    req.flash("error", "Mau Liat Apa bang?");
+    return res.redirect("/my-project");
+  }
+
+  const react = data[0].technology.includes("ReactJs"); //true
+  const node = data[0].technology.includes("NodeJs"); //true
+  const next = data[0].technology.includes("NextJs"); //true
+  const php = data[0].technology.includes("PHP"); //false
+
+  res.render("detail-myproject", {
+    data: data[0],
+    user,
+    react,
+    node,
+    next,
+    php,
+  });
+};
+
 const renderTestimonials = async (req, res) => {
   const { user } = req.session;
-  // console.log(testimonials);
 
   res.render("testimonials", { user });
 };
@@ -105,6 +148,10 @@ const renderContact = async (req, res) => {
   const { user } = req.session;
 
   res.render("contact", { user });
+};
+
+const renderNotFound = (req, res) => {
+  res.render("NotFund");
 };
 
 const renderLogin = (req, res) => {
@@ -134,8 +181,10 @@ module.exports = {
   renderMyProject,
   renderAddProject,
   renderEditProject,
+  renderDetailProject,
   renderTestimonials,
   renderContact,
   renderLogin,
   renderRegister,
+  renderNotFound,
 };

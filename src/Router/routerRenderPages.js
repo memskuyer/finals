@@ -12,11 +12,14 @@ router.get("/detail-blog/:id", controller.renderDetailBlog);
 router.get("/my-project", controller.renderMyProject);
 router.get("/add-project", controller.renderAddProject);
 router.get("/edit-project/:id", controller.renderEditProject);
+router.get("/detail-project/:id", controller.renderDetailProject);
 
 router.get("/testimonial", controller.renderTestimonials);
 router.get("/contact", controller.renderContact);
 
 router.get("/login", controller.renderLogin);
 router.get("/register", controller.renderRegister);
+
+router.get("*", controller.renderNotFound);
 
 module.exports = router;

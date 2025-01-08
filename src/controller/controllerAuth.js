@@ -136,11 +136,10 @@ const loginUser = async (req, res) => {
 };
 
 const processLogout = async (req, res) => {
-  req.session.destroy(function (err) {
-    console.log(err);
-  });
+  req.session.user = null;
 
-  res.redirect("/");
+  req.flash("success", `Yey Berhasil Logout`);
+  res.redirect("/login");
 };
 
 module.exports = {

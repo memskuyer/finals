@@ -11,6 +11,6 @@ document.getElementById("image").addEventListener("change", function (event) {
     reader.readAsDataURL(file);
   } else {
     preview.src = "#";
-    // preview.classList.add("d-none");
+    preview.classList.add("d-none");
   }
 });

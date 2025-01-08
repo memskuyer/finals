@@ -3,9 +3,8 @@
 <body id="bg-change" class="bg-cat3">
       <div class="container mt-5">
         <div class="d-flex justify-content-center">
-          <div class="border p-4 m-5 shadow-bg animate-border" style="border-radius: 15px;">
+          <div class="p-4 m-5 shadow-bg animate-border" style="border-radius: 15px;">
             <h3>Form Login</h3>
-            <small>{{message}}</small>
             <form class="text-white" style="width: 100%;" method="post" action="/login">
                 <div class="form-group">
                 <label for="inlineFormInputGroupUsername2" style=" color:black">Email</label>
@@ -38,6 +37,7 @@
                 alertError('{{messages.error}}')
             </script>
         {{/if}}
+
         {{#if messages.success}}
             <script>
                 alertSuccess('{{messages.success}}')

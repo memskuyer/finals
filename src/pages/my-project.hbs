@@ -17,7 +17,7 @@
                     <div class="shadow-bg p-2" style="width: 18rem;">
                         <img src="{{this.image}}" style="max-height: 200px;" class="card-img-top rounded-4" alt="images">
                         <div class="card-body my-2">
-                            <a href="#" class="text-a">
+                            <a href="/detail-project/{{this.id}}" class="text-a">
                                 <h5 class="card-title">{{textTitle this.title}}</h5>
                             </a>
                             <div>{{formatDate this.createdAt}} | {{this.user.username}}</div>
@@ -35,6 +35,7 @@
                     </div>
                 </div>
             {{/each}}
+
             </div>
         </div>
     </div>

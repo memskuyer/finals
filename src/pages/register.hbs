@@ -11,15 +11,32 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/assets/style/global-boostrap.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="/js/image-preview.js"></script>
+    <script src="/js/passwordBtn.js"></script>
     <title>Register Account</title>
   </head>
-  <body style="background: #1be2f0;">
+  <style>
+    .button-password { position: absolute; right: 41.8%; bottom: 49.2%; z-index:
+    10; } .button-password button { padding: 10px 15px; border: none;
+    border-radius: 10px; }
+  </style>
+  <body id="bg-change" class="bg-cat3">
     <!-- Optional JavaScript; choose one of the two! -->
     <div class="container mt-5">
       <div class="d-flex justify-content-center">
-        <div class="border p-4 m-5 bg-info" style="border-radius: 15px;">
+        <div
+          class="p-4 m-5 shadow-bg animate-border"
+          style="border-radius: 15px;"
+        >
           <h3>Form Register</h3>
           <form class="text-white" method="post" action="/register">
             <div class="form-group mb-3">
@@ -89,6 +106,11 @@
               <a href="/login">Login</a>
             </div>
           </form>
+        </div>
+        <div class="button-password">
+          <button id="btn-password" onclick="handleClick()"><i
+              class="fa-solid fa-eye"
+            ></i></button>
         </div>
       </div>
     </div>

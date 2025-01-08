@@ -1,3 +1,46 @@
-{{#>layout}}
+{{#>layout user=user}}
+    <div class="detail-container">
+        <div class="detail-content">
+            <div class="detail-data-blog">
+                <div class="detail-image-blog">
+                    <img src="{{data.image}}" alt="detail-images">
+                </div>
+                <div class="text-detail-blog">
+                    <div>
+                        <h1>{{data.title}}</h1>
+                    </div>
+                    <div class="semibold-text">
+                         {{formatDate data.createdAt}} | {{data.user.username}}
+                    </div>
+                    <div>
+                        {{#if react}}
+                            <img src="/assets/images/reactjs.svg" alt="reactjs" style="width: 50px;">
+                        {{/if}}
 
+                        {{#if node}}
+                            <img src="/assets/images/nodejs.svg" alt="nodejs" style="width: 50px;">
+                        {{/if}}
+
+                        {{#if next}}
+                            <img src="/assets/images/nextjs.svg" alt="next" style="width: 50px;">
+                        {{/if}}
+                        
+                        {{#if php}}
+                            <img src="/assets/images/php.svg" alt="php" style="width: 80px;">
+                        {{/if}}
+                    </div>
+                    <div class="detail-text-content">
+                        {{data.content}}
+                    </div>
+                    
+                    <div>
+                        Di Post Pada {{formatDate data.createdAt}}
+                    </div>
+                    <div>
+                        Di Update Pada  {{formatDate data.updatedAt}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {{/layout}}
