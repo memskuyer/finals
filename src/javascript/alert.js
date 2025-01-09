@@ -21,12 +21,30 @@ const alertDelete = () => {
   const form = event.target.form;
   Swal.fire({
     title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
+    text: "Do you want to delete this data?",
+    icon: "question",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  });
+};
+
+const alerLogout = () => {
+  event.preventDefault();
+  const form = event.target.form;
+  Swal.fire({
+    title: "Are you sure?",
+    text: "you want to logout",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Logout",
   }).then((result) => {
     if (result.isConfirmed) {
       form.submit();

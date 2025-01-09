@@ -15,19 +15,40 @@
                     <input type="email" name="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="email@example.com">
                     </div>
                 </div>
-                <div class="form-group mb-3">
-                    <label for="exampleInputPassword1" style=" color:black">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <div class="form-group">
+              <label for="exampleInputPassword1" style=" color:black">Password</label>
+              <div class="input-group mb-2 mr-sm-2">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                />
+                <div class="input-group-prepend">
+                  <button
+                    id="btn-password"
+                    onclick="handleClick()"
+                    style="border: none; width:40px"
+                    class="h-100 bg-none rounded"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                    {{! <div class="input-group-text">
+                    </div> }}
+                  </button>
                 </div>
+
+              </div>
+            </div>
                 <button type="submit" style="width: 100%;" class="btn btn-primary">Submit</button>
                 <div class="" style=" color:black">
                     <small>You Don't have Account?</small>
                     <a href="/register">Register</a>
                 </div>
             </form>
-                <div class="button-password">
+                {{!-- <div class="button-password">
                     <button id="btn-password" onclick="handleClick()" ><i class="fa-solid fa-eye"></i></button>
-                </div>
+                </div> --}}
             </div>
             </div>
         </div>
@@ -35,6 +56,7 @@
         {{#if messages.error}}
             <script>
                 alertError('{{messages.error}}')
+                
             </script>
         {{/if}}
 
@@ -43,6 +65,7 @@
                 alertSuccess('{{messages.success}}')
             </script>
         {{/if}}
+
 </body>
 
 {{/layout}}

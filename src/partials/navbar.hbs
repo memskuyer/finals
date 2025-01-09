@@ -50,7 +50,11 @@
       </li>
       <li>
         {{#if user}}
-        <a href="/logout" class="links">Logout</a>
+          <form action="/logout" method="get">
+              <button class="fs-4"  type="submit" onclick="alerLogout()" style="border: none; background-color:transparent">
+                Logout
+              </button>
+          </form>
         {{else}}
         <a href="/login" class="links">Login</a>
         {{/if}}
@@ -63,7 +67,11 @@
   <div class="nav-right">
     {{#if user}}
     <div style="margin-right: 10px">
-      <a href="/logout">Logout</a>
+      <form action="/logout" method="get">
+        <button  type="submit" class="fs-5" onclick="alerLogout()" style="border: none; background-color:transparent">
+          Logout
+        </button>
+      </form>
     </div>
     {{else}}
     <div style="margin-right: 10px">
@@ -80,3 +88,4 @@
     </button>
   </div>
 </nav>
+

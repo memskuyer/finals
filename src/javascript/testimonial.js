@@ -72,10 +72,6 @@ const ratingHtml = (data) => {
   });
 
   return sortData.map((res) => {
-    let str = "";
-    for (let i = 0; i < res.rating; i++) {
-      str += `<i class="fa-solid fa-star" style="color: #2392e7"></i>`;
-    }
     return `
           <div
           key=${res.id}
@@ -93,16 +89,30 @@ const ratingHtml = (data) => {
                 </p>
               </div>
               <div class="text-end my-2 fw-bold">
-                <marquee>${res.name} Memberikan ${str} </marquee>
+                <marquee>${res.name} Memberikan ${loopStar(
+      res.rating
+    )} </marquee>
               </div>
             </div>
           </div>
     `;
   });
 };
+
+const loopStar = (data) => {
+  let str = "";
+
+  for (let i = 0; i < data; i++) {
+    str += `<i class="fa-solid fa-star" style="color: #2392e7"></i>`;
+  }
+
+  return str;
+};
+
 const showAllRating = () => {
   elementHtml.innerHTML = ratingHtml(Rating);
 };
+
 showAllRating();
 
 const findStar = (rating) => {

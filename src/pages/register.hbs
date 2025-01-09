@@ -24,11 +24,11 @@
     <script src="/js/passwordBtn.js"></script>
     <title>Register Account</title>
   </head>
-  <style>
-    .button-password { position: absolute; right: 41.8%; bottom: 49.2%; z-index:
+  {{! <style>
+    .button-password { position: absolute; right: 43.4%; top: 35.8%; z-index:
     10; } .button-password button { padding: 10px 15px; border: none;
     border-radius: 10px; }
-  </style>
+  </style> }}
   <body id="bg-change" class="bg-cat3">
     <!-- Optional JavaScript; choose one of the two! -->
     <div class="container mt-5">
@@ -40,7 +40,7 @@
           <h3>Form Register</h3>
           <form class="text-white" method="post" action="/register">
             <div class="form-group mb-3">
-              <label for="username">Username</label>
+              <label for="username" style=" color:black">Username</label>
               <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
@@ -70,7 +70,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Email</label>
+              <label
+                for="exampleInputPassword1"
+                style=" color:black"
+              >Email</label>
               <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text">@</div>
@@ -84,22 +87,41 @@
                 />
               </div>
             </div>
-            <div class="form-group mb-3">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                name="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
+            <div class="form-group">
+              <label
+                for="exampleInputPassword1"
+                style=" color:black"
+              >Password</label>
+              <div class="input-group mb-2 mr-sm-2">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                />
+                <div class="input-group-prepend">
+                  <button
+                    id="btn-password"
+                    onclick="handleClick()"
+                    style="border: none; width:40px"
+                    class="h-100 bg-none rounded"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                    {{! <div class="input-group-text">
+                    </div> }}
+                  </button>
+                </div>
+
+              </div>
             </div>
-            <button
-              {{! onclick="passwordChecker()" }}
-              type="submit"
-              style="width: 100%;"
-              class="btn btn-primary"
-            >Submit</button>
+
+            <div>
+              <button
+                class="btn btn-primary w-100"
+                type="submit"
+              >Register</button>
+            </div>
 
             <div class="">
               <small>You have Account?</small>
@@ -107,11 +129,11 @@
             </div>
           </form>
         </div>
-        <div class="button-password">
+        {{! <div class="button-password">
           <button id="btn-password" onclick="handleClick()"><i
               class="fa-solid fa-eye"
             ></i></button>
-        </div>
+        </div> }}
       </div>
     </div>
 

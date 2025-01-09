@@ -47,6 +47,9 @@ hbs.registerHelper("textTitle", formatTextT);
 hbs.registerHelper("equal", (a, b) => {
   return a === b;
 });
+hbs.registerHelper("unequal", (a, b) => {
+  return a != b;
+});
 
 const routerRender = require("./src/Router/routerRenderPages");
 const routerAuth = require("./src/Router/routerAuth");

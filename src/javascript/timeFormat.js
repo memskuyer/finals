@@ -41,19 +41,37 @@ const getRelativeTime = (targetDate) => {
   }
 };
 
-const getUpdateTimes = (updateTarget) => {
+const getUpdateTimes = (created, updated) => {
   let now = new Date();
-  let diffInSeconds = Math.floor((now - updateTarget) / 1000);
-  let diffInMinutes = Math.floor(diffInSeconds / 60);
-  let diffInHours = Math.floor(diffInMinutes / 60);
+  let dateCreated = created.getDate() + created.getTime();
+  let dateUpdated = updated.getDate() + updated.getTime();
 
-  if (diffInSeconds < 60) {
-    return `Update ${diffInSeconds} Seconds Ago`;
-  } else if (diffInMinutes < 60) {
-    return `Update ${diffInMinutes} Minutes Ago`;
-  } else if (diffInHours < 60) {
-    return `Update ${diffInHours} Hours Ago`;
+  const secondsCreated = Math.floor((now - created) / 1000);
+  const minutesCreated = Math.floor(secondsCreated / 60);
+  const hoursCreated = Math.floor(minutesCreated / 60);
+
+  const secondsUpdated = Math.floor((now - updated) / 1000);
+  const minutesUpdated = Math.floor(secondsUpdated / 60);
+  const hoursUpdated = Math.floor(minutesCreated / 60);
+
+  if (dateCreated == dateUpdated) {
+    if (secondsCreated < 60) {
+      return `Post ${secondsCreated} Seconds Ago`;
+    } else if (minutesCreated < 60) {
+      return `Post ${minutesCreated} Minutes Ago`;
+    } else if (hoursCreated < 60) {
+      return `Post ${hoursCreated} Hours Ago`;
+    }
+  } else {
+    if (secondsUpdated < 60) {
+      return `Updated ${secondsUpdated} Seconds Ago`;
+    } else if (minutesUpdated < 60) {
+      return `Updated ${minutesUpdated} Minutes Ago`;
+    } else if (hoursUpdated < 60) {
+      return `Updated ${hoursUpdated} Hours Ago`;
+    }
   }
+  console.log(hoursCreated, minutesCreated, secondsCreated);
 };
 
 const formatDuration = (start, end) => {

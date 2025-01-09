@@ -1,4 +1,5 @@
 const handleClick = () => {
+  event.preventDefault();
   let changes = document.getElementById("bg-change");
   changes.classList.toggle("bg-cat3");
   changes.classList.toggle("bg-cat4");

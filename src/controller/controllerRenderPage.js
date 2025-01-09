@@ -123,10 +123,10 @@ const renderDetailProject = async (req, res) => {
     return res.redirect("/my-project");
   }
 
-  const react = data[0].technology.includes("ReactJs"); //true
-  const node = data[0].technology.includes("NodeJs"); //true
-  const next = data[0].technology.includes("NextJs"); //true
-  const php = data[0].technology.includes("PHP"); //false
+  const react = data[0].technology.includes("ReactJs");
+  const node = data[0].technology.includes("NodeJs");
+  const next = data[0].technology.includes("NextJs");
+  const php = data[0].technology.includes("PHP");
 
   res.render("detail-myproject", {
     data: data[0],
