@@ -20,6 +20,6 @@ router.get("/contact", controller.renderContact);
 router.get("/login", controller.renderLogin);
 router.get("/register", controller.renderRegister);
 
-router.get("*", controller.renderNotFound);
+// router.get("*", controller.renderNotFound);
 
 module.exports = router;
