@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const controller = require("../controller/controllerCrud");
-const upload = require("../middleware/upload-image");
+const upload = require("../middleware/multerConfig");
 
 router.post("/add-myproject", upload.single("image"), controller.addMyProject);
 // router.post("/add-myproject", controller.addMyProject);
