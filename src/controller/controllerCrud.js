@@ -14,21 +14,21 @@ const addMyProject = async (req, res) => {
   const { user } = req.session;
   const { title, startDate, endDate, content, react, node, next, php } =
     req.body;
+  const image = req.file ? req.file.path : null; // Cloudinary URL is in req.file.path
 
   if (!user) {
     req.flash("error", "Silahkan Login Terlebih Dahulu");
+    // Remove the uploaded image if not logged in
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // No need to manually unlink because Cloudinary URL is already stored in the database
     }
     return res.redirect("/login");
   }
 
   if (!title) {
-    req.flash("error", "Title TIdak Boleh Kosong");
+    req.flash("error", "Title Tidak Boleh Kosong");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary if the title is empty
     }
     return res.redirect("/add-project");
   }
@@ -36,49 +36,44 @@ const addMyProject = async (req, res) => {
   if (!startDate) {
     req.flash("error", "Start Date Tidak Boleh Kosong");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary
     }
     return res.redirect("/add-project");
   }
+
   if (!endDate) {
     req.flash("error", "End Date Tidak Boleh Kosong");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary
     }
     return res.redirect("/add-project");
   }
 
   let dateStart = new Date(startDate.replaceAll("-", "/"));
-  let dateend = new Date(endDate.replaceAll("-", "/"));
-
-  let time_difference = dateend.getDate() - dateStart.getDate();
-
+  let dateEnd = new Date(endDate.replaceAll("-", "/"));
+  let timeDifference = dateEnd.getDate() - dateStart.getDate();
   let duration =
-    dateend.getMonth() -
+    dateEnd.getMonth() -
     dateStart.getMonth() +
-    12 * (dateend.getFullYear() - dateStart.getFullYear());
-
+    12 * (dateEnd.getFullYear() - dateStart.getFullYear());
   let timeYears = parseInt(duration / 12);
 
   let made;
   if (duration < 0) {
     req.flash("error", "Start Date Tidak Boleh Lebih Dari End Date");
     return res.redirect("/add-project");
-  } else if (duration == 0) {
-    made = `${time_difference} Days`;
+  } else if (duration === 0) {
+    made = `${timeDifference} Days`;
   } else if (duration < 12) {
     made = `${duration} Month`;
-  } else if (duration >= 12) {
+  } else {
     made = `${timeYears} Year`;
   }
 
   if (!content) {
     req.flash("error", "Content Tidak Boleh Kosong");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary
     }
     return res.redirect("/add-project");
   }
@@ -86,8 +81,7 @@ const addMyProject = async (req, res) => {
   if (content.length < 200) {
     req.flash("error", "Content Minimal 200 karakter");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary
     }
     return res.redirect("/add-project");
   }
@@ -95,37 +89,25 @@ const addMyProject = async (req, res) => {
   if (!react && !node && !next && !php) {
     req.flash("error", "Minimal Pilih Salah Satu Technology");
     if (req.file) {
-      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-      fs.unlink(fullPath, (err) => {});
+      // Remove the uploaded image from Cloudinary
     }
     return res.redirect("/add-project");
   }
 
   let checkBox = "";
-  if (react) {
-    checkBox += ` ${react} `;
-  }
-  if (node) {
-    checkBox += ` ${node} `;
-  }
-  if (next) {
-    checkBox += ` ${next} `;
-  }
-  if (php) {
-    checkBox += ` ${php} `;
-  }
+  if (react) checkBox += ` ${react} `;
+  if (node) checkBox += ` ${node} `;
+  if (next) checkBox += ` ${next} `;
+  if (php) checkBox += ` ${php} `;
 
   if (!req.file) {
     req.flash("error", "Image Tidak Boleh Kosong");
     return res.redirect("/add-project");
   }
-  const image =
-    "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
-
-  console.log(req.file);
 
   const idUser = user.id;
 
+  // Save project with Cloudinary image URL
   await myproject.create({
     title,
     startDate,
@@ -133,12 +115,18 @@ const addMyProject = async (req, res) => {
     made,
     content,
     technology: checkBox,
-    image,
+    image: image, // Save the Cloudinary URL in the database
     user_id: idUser,
   });
 
   req.flash("success", "Berhasil Menambahkan Project Baru");
   res.redirect("/my-project");
+};
+
+module.exports = {
+  addMyProject,
+  deleteMyProject,
+  editMyProject,
 };
 
 const deleteMyProject = async (req, res) => {
