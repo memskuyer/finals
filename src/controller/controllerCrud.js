@@ -287,8 +287,7 @@ const editMyProject = async (req, res) => {
   let fileImage;
 
   if (req.file) {
-    fileImage =
-      "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
+    fileImage = req.file ? req.file.path : null; // Cloudinary URL is in req.file.path
     const fullPath = path.join(__dirname, "../uploads/", imageReplace);
     fs.unlink(fullPath, (err) => {});
   } else {
