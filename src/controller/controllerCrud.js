@@ -15,40 +15,40 @@ const addMyProject = async (req, res) => {
   const { title, startDate, endDate, content, react, node, next, php } =
     req.body;
 
-  // if (!user) {
-  //   req.flash("error", "Silahkan Login Terlebih Dahulu");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/login");
-  // }
+  if (!user) {
+    req.flash("error", "Silahkan Login Terlebih Dahulu");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/login");
+  }
 
-  // if (!title) {
-  //   req.flash("error", "Title TIdak Boleh Kosong");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
+  if (!title) {
+    req.flash("error", "Title TIdak Boleh Kosong");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
 
-  // if (!startDate) {
-  //   req.flash("error", "Start Date Tidak Boleh Kosong");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
-  // if (!endDate) {
-  //   req.flash("error", "End Date Tidak Boleh Kosong");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
+  if (!startDate) {
+    req.flash("error", "Start Date Tidak Boleh Kosong");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
+  if (!endDate) {
+    req.flash("error", "End Date Tidak Boleh Kosong");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
 
   let dateStart = new Date(startDate.replaceAll("-", "/"));
   let dateend = new Date(endDate.replaceAll("-", "/"));
@@ -74,32 +74,32 @@ const addMyProject = async (req, res) => {
     made = `${timeYears} Year`;
   }
 
-  // if (!content) {
-  //   req.flash("error", "Content Tidak Boleh Kosong");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
+  if (!content) {
+    req.flash("error", "Content Tidak Boleh Kosong");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
 
-  // if (content.length < 200) {
-  //   req.flash("error", "Content Minimal 200 karakter");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
+  if (content.length < 200) {
+    req.flash("error", "Content Minimal 200 karakter");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
 
-  // if (!react && !node && !next && !php) {
-  //   req.flash("error", "Minimal Pilih Salah Satu Technology");
-  //   if (req.file) {
-  //     const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
-  //     fs.unlink(fullPath, (err) => {});
-  //   }
-  //   return res.redirect("/add-project");
-  // }
+  if (!react && !node && !next && !php) {
+    req.flash("error", "Minimal Pilih Salah Satu Technology");
+    if (req.file) {
+      const fullPath = path.join(__dirname, "../uploads/", req.file.filename);
+      fs.unlink(fullPath, (err) => {});
+    }
+    return res.redirect("/add-project");
+  }
 
   let checkBox = "";
   if (react) {
@@ -115,12 +115,12 @@ const addMyProject = async (req, res) => {
     checkBox += ` ${php} `;
   }
 
-  // if (!req.file) {
-  //   req.flash("error", "Image Tidak Boleh Kosong");
-  //   return res.redirect("/add-project");
-  // }
-  // const image =
-  //   "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
+  if (!req.file) {
+    req.flash("error", "Image Tidak Boleh Kosong");
+    return res.redirect("/add-project");
+  }
+  const image =
+    "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
 
   const idUser = user.id;
 
@@ -131,7 +131,7 @@ const addMyProject = async (req, res) => {
     made,
     content,
     technology: checkBox,
-    // image,
+    image,
     user_id: idUser,
   });
 
