@@ -23,6 +23,7 @@ const userRegister = async (req, res) => {
     req.flash("error", "Email Tidak Boleh Kosong");
     return res.redirect("/register");
   }
+
   const isEmail = await User.findOne({ where: { email } });
   if (isEmail) {
     req.flash(
@@ -101,6 +102,7 @@ const loginUser = async (req, res) => {
     req.flash("error", "Email Tidak Boleh Kosong");
     return res.redirect("/login");
   }
+
   if (!password) {
     req.flash("error", "Password Tidak Boleh Kosong");
     return res.redirect("/login");

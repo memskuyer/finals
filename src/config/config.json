@@ -16,11 +16,17 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "postgres",
-    "password": "123456",
+    "username": "b59_final_owner",
+    "password": "2fv3zFSUoCml",
     "database": "b59_final",
-    "host": "127.0.0.1",
+    "host": "ep-patient-math-a1s9stu6.ap-southeast-1.aws.neon.tech",
     "port": "5432",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }

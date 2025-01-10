@@ -1,7 +1,9 @@
 const config = require("../config/config.json");
 const { Sequelize, QueryTypes, where } = require("sequelize");
-const sequelize = new Sequelize(config.development);
 const { myproject, User } = require("../models");
+// const sequelize = new Sequelize(config.development);
+const env = process.env.NODE_ENV || "production";
+const sequelize = new Sequelize(config[env]);
 
 const renderHome = (req, res) => {
   const { user } = req.session;
