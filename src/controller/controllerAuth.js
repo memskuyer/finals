@@ -133,6 +133,8 @@ const loginUser = async (req, res) => {
   delete loginSession.password;
   req.session.user = loginSession;
 
+  console.log(req.session.user);
+
   req.flash("success", `Selamat Datang ${loginSession.username}`);
   return res.redirect("/");
 };
