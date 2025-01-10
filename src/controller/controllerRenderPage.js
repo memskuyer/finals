@@ -10,10 +10,10 @@ const renderHome = (req, res) => {
   const { user } = req.session;
   console.log(user);
 
-  // if (!user) {
-  //   req.flash("error", "You must be logged in to view this page.");
-  //   return res.redirect("/login");
-  // }
+  if (!user) {
+    req.flash("error", "You must be logged in to view this page.");
+    return res.redirect("/login");
+  }
 
   res.render("home", { user });
 };
@@ -21,10 +21,10 @@ const renderHome = (req, res) => {
 const renderMyProject = async (req, res) => {
   const { user } = req.session;
 
-  // if (!user) {
-  //   req.flash("error", "Please log in to view your projects.");
-  //   return res.redirect("/login");
-  // }
+  if (!user) {
+    req.flash("error", "Please log in to view your projects.");
+    return res.redirect("/login");
+  }
 
   const data = await myproject.findAll({
     include: {
