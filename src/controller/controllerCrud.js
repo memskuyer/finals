@@ -9,36 +9,6 @@ const { myproject } = require("../../models");
 // const sequelize = new Sequelize(config.development);
 // const env = process.env.NODE_ENV || "development";
 const sequelize = new Sequelize(config[env]);
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-
-const octokit = new Octokit({
-  auth: GITHUB_TOKEN,
-});
-
-const REPO_OWNER = "memskuyer";
-const REPO_NAME = "finals";
-const BRANCH = "master";
-
-async function uploadFileToGitHub(localFilePath, remoteFilePath) {
-  try {
-    const fileContent = fs.readFileSync(localFilePath);
-    const base64Content = Buffer.from(fileContent).toString("base64");
-
-    const response = await octokit.repos.createOrUpdateFileContents({
-      owner: REPO_OWNER,
-      repo: REPO_NAME,
-      path: remoteFilePath,
-      message: "Add new image via Octokit",
-      content: base64Content,
-      branch: BRANCH,
-    });
-
-    console.log("File uploaded successfully!");
-    console.log("File URL:", response.data.content.html_url);
-  } catch (error) {
-    console.error("Error uploading file:", error.message);
-  }
-}
 
 const addMyProject = async (req, res) => {
   const { user } = req.session;
@@ -151,12 +121,6 @@ const addMyProject = async (req, res) => {
   }
   // const image =
   //   "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
-
-  const localImagePath = req.file.path;
-  const ImageName = req.file.filename;
-  const remoteImagePath = "uploads/" + ImageName;
-
-  uploadFileToGitHub(localImagePath, remoteImagePath);
 
   const idUser = user.id;
 
