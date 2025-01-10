@@ -43,14 +43,14 @@ app.use(
     }),
     name: "session-login",
     secret: process.env.SECRET_KEY,
-    resave: true,
+    resave: false,
     saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Secure cookies in production (for Vercel)
-      //sameSite: "strict", // CSRF protection
-      maxAge: 1000 * 60 * 60 * 24 * 7, // Session expiration (7 days)
-    },
+    // cookie: {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production", // Secure cookies in production (for Vercel)
+    //   sameSite: "strict", // CSRF protection
+    //   maxAge: 1000 * 60 * 60 * 24 * 7, // Session expiration (7 days)
+    // },
   })
 );
 
