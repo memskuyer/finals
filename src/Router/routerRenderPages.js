@@ -4,11 +4,6 @@ const router = express.Router();
 const controller = require("../controller/controllerRenderPage");
 
 router.get("/", controller.renderHome);
-// router.get("/blog", controller.renderBlog);
-// router.get("/add-blog", controller.renderAddBlog);
-// router.get("/edit-blog/:id", controller.renderEditBlog);
-// router.get("/detail-blog/:id", controller.renderDetailBlog);
-
 router.get("/my-project", controller.renderMyProject);
 router.get("/add-project", controller.renderAddProject);
 router.get("/edit-project/:id", controller.renderEditProject);
