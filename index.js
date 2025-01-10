@@ -7,7 +7,6 @@ const flash = require("express-flash");
 const session = require("express-session");
 const hbs = require("hbs");
 const methodOverride = require("method-override");
-
 const {
   formatDate,
   getRelativeTime,
@@ -31,12 +30,6 @@ app.use(
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-      sameSite: "strict", // Enforces CSRF protection
-      maxAge: 1000 * 60 * 60 * 24 * 7, // Session expiry time (7 days)
-    },
   })
 );
 
