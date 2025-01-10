@@ -131,8 +131,8 @@ const loginUser = async (req, res) => {
   let loginSession = user.toJSON();
 
   delete loginSession.password;
-  req.session.user = loginSession;
 
+  req.session.user = loginSession;
   console.log(req.session.user);
 
   req.flash("success", `Selamat Datang ${loginSession.username}`);
