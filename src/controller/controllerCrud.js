@@ -1,6 +1,6 @@
 require("dotenv").config();
 const config = require("../../config/config");
-const { Octokit } = require("@octokit/rest");
+// const { Octokit } = require("@octokit/rest");
 const env = process.env.NODE_ENV || "production";
 const { Sequelize, QueryTypes } = require("sequelize");
 const path = require("path");
