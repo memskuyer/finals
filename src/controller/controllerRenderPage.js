@@ -1,5 +1,5 @@
 require("dotenv").config();
-const config = require("../../config/config.js");
+const config = require("../../config/config");
 const { Sequelize, QueryTypes } = require("sequelize");
 const { myproject, User } = require("../../models");
 // const sequelize = new Sequelize(config.development);
