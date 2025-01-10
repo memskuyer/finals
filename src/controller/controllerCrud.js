@@ -115,10 +115,10 @@ const addMyProject = async (req, res) => {
     checkBox += ` ${php} `;
   }
 
-  if (!req.file) {
-    req.flash("error", "Image Tidak Boleh Kosong");
-    return res.redirect("/add-project");
-  }
+  // if (!req.file) {
+  //   req.flash("error", "Image Tidak Boleh Kosong");
+  //   return res.redirect("/add-project");
+  // }
   // const image =
   //   "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
 
@@ -131,7 +131,7 @@ const addMyProject = async (req, res) => {
     made,
     content,
     technology: checkBox,
-    image,
+    // image,
     user_id: idUser,
   });
 
