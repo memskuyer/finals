@@ -1,5 +1,0 @@
-{
-  "ext": "js,hbs",
-  "ignore": ["node_modules"],
-  "exec": "node index.js"
-}

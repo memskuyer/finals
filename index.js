@@ -55,8 +55,8 @@ const routerRender = require("./src/Router/routerRenderPages");
 const routerAuth = require("./src/Router/routerAuth");
 const routerCrud = require("./src/Router/routerCrud");
 app.use("/", routerRender);
-app.use("/", routerAuth);
-app.use("/", routerCrud);
+// app.use("/", routerAuth);
+// app.use("/", routerCrud);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
