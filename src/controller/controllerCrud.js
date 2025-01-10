@@ -122,6 +122,8 @@ const addMyProject = async (req, res) => {
   const image =
     "https://b59-paste-prosmana.vercel.app/image/" + req.file.filename;
 
+  console.log(req.file);
+
   const idUser = user.id;
 
   await myproject.create({
