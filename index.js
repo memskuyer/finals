@@ -1,3 +1,4 @@
+// index.js
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -77,6 +78,7 @@ const routerRender = require("./src/Router/routerRenderPages");
 const routerAuth = require("./src/Router/routerAuth");
 const routerCrud = require("./src/Router/routerCrud");
 
+// Apply routes
 app.use("/", routerAuth); // Authentication routes (login, register)
 app.use("/", routerCrud); // CRUD routes for projects, etc.
 app.use("/", routerRender); // Other rendering routes for pages
