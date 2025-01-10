@@ -1,6 +1,7 @@
-const config = require("../config/config.json");
+require("dotenv").config();
+const config = require("../../config/config.json");
 const { Sequelize, QueryTypes, where } = require("sequelize");
-const { myproject, User } = require("../models");
+const { myproject, User } = require("../../models");
 // const sequelize = new Sequelize(config.development);
 const env = process.env.NODE_ENV || "production";
 const sequelize = new Sequelize(config[env]);
@@ -8,60 +9,6 @@ const sequelize = new Sequelize(config[env]);
 const renderHome = (req, res) => {
   const { user } = req.session;
   res.render("home", { user });
-};
-
-const renderBlog = async (req, res) => {
-  const { user } = req.session;
-
-  const query = `SELECT public."Blogs".*,
-  "User".username, "User".email
-  FROM public."Blogs"
-  FULL OUTER JOIN public."Users" 
-  AS "User" ON public."Blogs".user_id = "User".id WHERE title IS NOT NULL
-  ORDER BY public."Blogs"."createdAt" ASC`;
-  const blog = await sequelize.query(query, {
-    type: QueryTypes.SELECT,
-  });
-
-  res.render("blogs", { data: blog, user });
-};
-const renderAddBlog = async (req, res) => {
-  const { user } = req.session;
-  res.render("add-blog", { user });
-};
-const renderEditBlog = async (req, res) => {
-  const { user } = req.session;
-  const { id } = req.params;
-
-  const query = `SELECT * FROM public."Blogs" WHERE id = ${id}`;
-  const sql = await sequelize.query(query, { type: QueryTypes.SELECT });
-  if (!sql[0]) {
-    req.flash("error", "Mau Ngedit Apa bang?");
-    return res.redirect("/blog");
-  }
-  res.render("edit-blog", { data: sql[0], user });
-};
-
-const renderDetailBlog = async (req, res) => {
-  const { user } = req.session;
-  const { id } = req.params;
-
-  const query = `SELECT public."Blogs".*,
-  "User".username, "User".email
-  FROM public."Blogs"
-  FULL OUTER JOIN public."Users" 
-  AS "User" ON public."Blogs".user_id = "User".id WHERE  public."Blogs".id = ${id}
-  ORDER BY public."Blogs"."createdAt" ASC`;
-  const sql = await sequelize.query(query, { type: QueryTypes.SELECT });
-
-  if (!sql[0]) {
-    req.flash("error", "Mau Nyari Apa bang?");
-    return res.redirect("/blog");
-  }
-
-  console.log(sql);
-
-  res.render("detail-blog", { data: sql[0], user });
 };
 
 const renderMyProject = async (req, res) => {
@@ -176,10 +123,6 @@ const renderRegister = (req, res) => {
 
 module.exports = {
   renderHome,
-  renderBlog,
-  renderAddBlog,
-  renderEditBlog,
-  renderDetailBlog,
   renderMyProject,
   renderAddProject,
   renderEditProject,
