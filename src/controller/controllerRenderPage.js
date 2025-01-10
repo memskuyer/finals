@@ -8,6 +8,8 @@ const sequelize = new Sequelize(config[env]);
 
 const renderHome = (req, res) => {
   const { user } = req.session;
+  console.log(user);
+
   res.render("home", { user });
 };
 
