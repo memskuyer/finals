@@ -36,6 +36,7 @@ app.use(
 app.use("/assets", express.static(path.join(__dirname, "./src/assets")));
 app.use("/image", express.static(path.join(__dirname, "./src/uploads")));
 app.use("/js", express.static(path.join(__dirname, "./src/javascript")));
+app.use("/uploads", express.static(path.join(__dirname, "./src/uploads")));
 
 hbs.registerPartials(__dirname + "/src/partials", function (err) {});
 hbs.registerHelper("formatDate", formatDate);
