@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { Sequelize, QueryTypes } = require("sequelize");
-const config = require("../../config/config.json");
+const config = require("../../config/config");
 const { myproject, User } = require("../../models");
 // const sequelize = new Sequelize(config.development);
 const env = process.env.NODE_ENV || "production";
