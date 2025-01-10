@@ -48,7 +48,7 @@ app.use(
     cookie: {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // Secure cookies in production (for Vercel)
-      sameSite: "strict", // CSRF protection
+      //sameSite: "strict", // CSRF protection
       maxAge: 1000 * 60 * 60 * 24 * 7, // Session expiration (7 days)
     },
   })
