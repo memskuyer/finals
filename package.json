@@ -6,9 +6,7 @@
     "node": "20.x"
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "migrate": "sequelize-cli db:migrate",
-    "mundo": "sequelize-cli db:migrate:undo"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
