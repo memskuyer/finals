@@ -1,6 +1,5 @@
 const bcrypt = require("bcrypt");
 const { User } = require("../../models");
-
 const rollDice = 10;
 
 const userRegister = async (req, res) => {
@@ -99,7 +98,6 @@ const userRegister = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
-
   if (!email) {
     req.flash("error", "Email Tidak Boleh Kosong");
     return res.redirect("/login");
@@ -134,15 +132,15 @@ const loginUser = async (req, res) => {
 
   delete loginSession.password;
 
-  req.session.user = loginSession; // Save the user to session
-  console.log(req.session.user); // Log session data for debugging
+  req.session.user = loginSession;
+  console.log(req.session.user);
 
   req.flash("success", `Selamat Datang ${loginSession.username}`);
-  return res.redirect("/"); // Redirect to home or another page after login+
+  return res.redirect("/");
 };
 
 const processLogout = async (req, res) => {
-  req.session.user = null; // Clear the session on logout
+  req.session.user = null;
 
   req.flash("success", `Yey Berhasil Logout`);
   res.redirect("/login");
