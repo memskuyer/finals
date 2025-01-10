@@ -123,12 +123,6 @@ const addMyProject = async (req, res) => {
   res.redirect("/my-project");
 };
 
-module.exports = {
-  addMyProject,
-  deleteMyProject,
-  editMyProject,
-};
-
 const deleteMyProject = async (req, res) => {
   const { id } = req.params;
   const { user } = req.session;
